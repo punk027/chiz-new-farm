@@ -20,6 +20,7 @@ const useAllowance = (lpContract, farmContract=null) => {
       farmContract,
       account,
     );
+    console.log("allowance = ", allowance);
     setAllowance(new BigNumber(allowance));
   }, [account, farmContract, lpContract]);
 
@@ -30,7 +31,7 @@ const useAllowance = (lpContract, farmContract=null) => {
     let refreshInterval = setInterval(fetchAllowance, 10000);
     return () => clearInterval(refreshInterval);
   }, [account, farmContract, lpContract]);
-  
+  console.log("allowance=", farmContract.options.address);
   return allowance;
 }
 

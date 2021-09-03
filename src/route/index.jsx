@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import DashBoard from "../pages/dashBoard";
 
-import Mine from "../pages/mine";
-import Buy from "../pages/buy";
-import Purchase from "../pages/purchase";
+// import Farm from "../pages/farm";
+import SignIn from "../pages/SignIn";
 
 class Routes extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Mine} />
-          <Route exact path="/mine" component={Mine} />
-          <Route exact path="/buy" component={Buy} />
-          <Route exact path="/purchase" component={Purchase} />
-          
+          {/* <Route exact path="/" component={Farm} /> */}
+          <Route exact path="/dashboard" component={DashBoard} />
+          <Route exact path="/" component={SignIn} />
         </Switch>
       </Router>
     );

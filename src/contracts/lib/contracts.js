@@ -3,9 +3,13 @@ import * as Types from './types.js';
 import {
   // SUBTRACT_GAS_LIMIT,
   contractAddresses,
+  supportedPools,
 } from './constants.js';
 
-
+import UNIV2PairAbi from './abi/uni_v2_lp.json';
+import FarmAbi from './abi/farm.json';
+import ERC20Abi from './abi/erc20.json';
+import WETHAbi from './abi/weth.json';
 
 export class Contracts {
   constructor(provider, networkId, web3, options) {
@@ -17,7 +21,20 @@ export class Contracts {
     this.defaultGas = options.defaultGas;
     this.defaultGasPrice = options.defaultGasPrice;
 
-  
+    this.erc20 = new this.web3.eth.Contract(ERC20Abi);
+    this.farm = new this.web3.eth.Contract(FarmAbi);
+    this.weth = new this.web3.eth.Contract(WETHAbi);
+
+    this.pools = supportedPools.map((pool) =>
+        Object.assign(pool, {
+          lpAddress: pool.lpAddresses[networkId],
+          tokenAddress: pool.tokenAddresses[networkId],
+          farmAddress: pool.farmAddresses[networkId],
+          lpContract: new this.web3.eth.Contract(UNIV2PairAbi),
+          tokenContract: new this.web3.eth.Contract(ERC20Abi),
+          farmContract: new this.web3.eth.Contract(FarmAbi)
+        }),
+    );
 
     this.setProvider(provider, networkId);
     this.setDefaultAccount(this.web3.eth.defaultAccount);
@@ -35,9 +52,10 @@ export class Contracts {
     setProvider(this.weth, contractAddresses.weth[networkId]);
 
     this.pools.forEach(
-        ({ lpContract, lpAddress, tokenContract, tokenAddress }) => {
+        ({ lpContract, lpAddress, tokenContract, tokenAddress, farmContract, farmAddress }) => {
           setProvider(lpContract, lpAddress);
           setProvider(tokenContract, tokenAddress);
+          setProvider(farmContract, farmAddress);
         },
     )
   }

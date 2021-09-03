@@ -589,7 +589,7 @@ h1 {
 }
 
 .stake_card {
-  background-color: #fff;
+  background-color: #000;
   border-radius: 25px;
   height: auto;
 }
@@ -631,7 +631,6 @@ h1 {
   color: #977d83;
 }
 
-
 .cardButton {
   color: #136f1c;
   background: #d1f3d5;
@@ -641,7 +640,7 @@ h1 {
 
 .cardButton:hover {
   color: #136f1c;
-  background: #a5e0ac !important;
+  background: #d1f3d5;
   border: 1px solid #8cd594 !important;
 }
 
@@ -667,17 +666,15 @@ h1 {
 
 .withDrawButton {
   background: #fae2e9 !important;
-  /* border: 1px solid #ffa8ba; */
-  border: none;
+  border: 1px solid #ffa8ba;
   border-radius: 8px;
   color: #f7215e;
 }
 
 .withDrawButton:hover {
   color: #ff2e59;
-  /* border: 1px solid #ffa8ba !important; */
-  border: none;
-  background: #fdecf1 !important;
+  border: 1px solid #ffa8ba !important;
+  background: #fae2e9 !important;
 }
 
 .addMore {

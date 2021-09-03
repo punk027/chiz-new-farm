@@ -1,7 +1,23 @@
-import '../scss/App.scss';
-import Route from "../route/index";
 import { UseWalletProvider } from 'use-wallet';
-import { getEthChainInfo } from "../utils/getEthChainInfo";
+
+import "../scss/App.scss";
+import "../App.css"
+import Route from "../route/index";
+import "../scss/style.css"
+
+import PayrProvider from '../contexts/PayrProvider';
+import FarmsProvider from '../contexts/Farms';
+
+import { getEthChainInfo } from "../utils/getEthChainInfo"; 
+
+function App() {
+  return (
+    <Providers>
+      <Route />
+    </Providers>
+  );
+}
+
 const Providers = ({ children }) => {
 
   const {
@@ -16,16 +32,13 @@ const Providers = ({ children }) => {
         walletconnect: { rpcUrl }
       }}
     >
-        {children}
+      <PayrProvider>
+        <FarmsProvider>
+          {children}
+        </FarmsProvider>
+      </PayrProvider>
     </UseWalletProvider>
   )
-} 
-function App() {
-  return (
-    <Providers>
-      <Route />
-    </Providers>
-      );
 }
 
 export default App;
