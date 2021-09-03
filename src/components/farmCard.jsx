@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Row, Col, Button, Modal, Accordion, Form, Card, Image, Badge, InputGroup, Spinner } from 'react-bootstrap';
+import { Row, Col, Button,  Form, Card, Image, Badge, InputGroup, Spinner } from 'react-bootstrap';
 import BigNumber from 'bignumber.js'
 
 import useFarms from '../hooks/useFarms';
@@ -15,56 +15,21 @@ import ConectWallet from "../components/conectWallet";
 import { BASIC_TOKEN } from '../constants/config';
 import { useWallet } from 'use-wallet';
 import { useEffect } from 'react';
-import { getEarned, getFarmContract, getPoolWeight, getStaked, harvest, stake, unstake, getDecimals } from '../contracts/utils';
+import { getEarned, getStaked, harvest, stake, unstake } from '../contracts/utils';
 import { bnToDec } from '../utils';
 import useAllowance from '../hooks/useAllowance';
 import useApprove from '../hooks/useApprove';
 import { useCallback } from 'react';
 
 
-function ContextAwareToggle({ children, eventKey,theme, callback }) {
-    const currentEventKey = useContext(AccordionContext);
-    const decoratedOnClick = useAccordionToggle(
-      eventKey,
-      () => callback && callback(eventKey),
-    );
-    const isCurrentEventKey = currentEventKey === eventKey;
-  
-    return (
-    <button
-        type="button"
-        onClick={decoratedOnClick}
-        className="w-100 border-0 bg_transprent mt-3"
-    >
-        {isCurrentEventKey ? 
-			<h6 className={`font-weight-bold ${!theme && 'text-white'}`}><img alt="upArrow" src={UpArrow} className="ml-1" /></h6> : 
-			<h6 className={`font-weight-bold ${!theme && 'text-white'}`}><img alt="downArrow" src={DownArrow} className="ml-1" /></h6>
-		}
-    </button>
-    );
-  }
-
 const FarmCard = (props) => {
 
 	const [farms] = useFarms();
 	const stakedValue = useAllStakedValue();
 
-    const [showDeposit, setShowDeposit] = useState(false);
-    const [showHarvest, setShowHarvest] = useState(false);
-    const [showWidhdraw, setShowWidhdraw ] = useState(false);
-    const [modalShow, setModalShow] = useState(false);
-    const [lPBalance, setLPBalance] = useState(null);
-    const [stakedBalance, setStakedBalance] = useState(null);
-    const [selectedPool, setSelectedPool] = useState(null);
-    const [depositAmount, setDepositAmount] = useState(0);
-    const [withdrawAmount, setWithdrawAmount] = useState(0);
-    const [pendingDeposit, setPendingDeposit] = useState(false);
-    const [pendingWithdraw, setPendingWithdraw] = useState(false);
-    const [pendingHarvest, setPendingHarvest] = useState(false);
-    const [earnedBalance, setEarnedBalance] = useState(null);
 
-    const payr = usePayr();
-    const { account } = useWallet();
+    const [modalShow, setModalShow] = useState(false);
+
 
 	const farmIndex = farms.findIndex(
 		({ tokenSymbol }) => tokenSymbol === BASIC_TOKEN,
@@ -101,38 +66,7 @@ const FarmCard = (props) => {
 		[[]],
 	);
 
-    const clickHarvest = async (pool) => {
-        setShowHarvest(true);
-        setSelectedPool(pool);
-        const balance = await getEarned(
-            getFarmContract(payr),
-            pool.pid,
-            account
-        );
-        setEarnedBalance(bnToDec(new BigNumber(balance)));
-    };
-
-    const clickDeposit = async (pool) => {
-        setShowDeposit(true);
-        setSelectedPool(pool);
-        setDepositAmount(0);
-        const balance = await pool.lpContract.methods
-            .balanceOf(props.account)
-            .call();
-        setLPBalance(bnToDec(new BigNumber(balance)));
-    };
-
-    const clickWithdraw = async (pool) => {
-        setShowWidhdraw(true);
-        setSelectedPool(pool);
-        setWithdrawAmount(0);
-        const balance = await getStaked(
-            getFarmContract(payr),
-            pool.pid,
-            account
-        );
-        setStakedBalance(bnToDec(new BigNumber(balance.toNumber())));
-    };
+ 
     
     return (
         <>

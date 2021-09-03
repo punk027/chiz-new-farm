@@ -49,7 +49,7 @@ function ConectWallet(props) {
               props.onHide();
             }}
           >
-            <img src={props.themeClass ? Metamask : MetamaskDark} />
+            <img src={props.themeClass ? Metamask : MetamaskDark} alt=""/>
             <h3 className="text_app mb-0 ml-3">Metamask</h3>
           </Button>
           <Button
@@ -60,7 +60,7 @@ function ConectWallet(props) {
               props.onHide();
             }}
           >
-            <img src={props.themeClass ? WConnect : WConnectDark} />
+            <img src={props.themeClass ? WConnect : WConnectDark}  alt=""/>
             <h3 className="text_app mb-0 ml-3"> WalletConnect</h3>
           </Button>
         </div>
