@@ -1,0 +1,7 @@
+[[redirects]]
+  from = "/dashboard"
+  to = "http://farm.kawatoken.io/"
+  status = 200
+  force = true
+  query = {path = ":path"}
+  conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
