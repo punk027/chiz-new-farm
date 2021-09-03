@@ -18,7 +18,7 @@ const useBlock = () => {
     }, 1000);
 
     return () => clearInterval(interval)
-  }, [ethereum]);
+  }, [block, ethereum]);
 
   return block;
 }

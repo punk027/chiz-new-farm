@@ -39,13 +39,13 @@ const useAllStakedValue = () => {
     );
 
     setBalance(balances);
-  }, [account, farmContract, payr]);
+  }, [ farmContract, farms, wethContact]);
 
   useEffect(() => {
     if (account && farmContract && payr) {
       fetchAllStakedValue()
     }
-  }, [account, block, farmContract, setBalance, payr])
+  }, [account, block, farmContract, setBalance, payr, fetchAllStakedValue])
   console.log("balances = ", balances);
   return balances;
 }

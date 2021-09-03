@@ -31,7 +31,7 @@ const SignIn = props => {
             localStorage.setItem("walletProvider", "walletconnect");
           }
         }
-      }, []);
+      }, [account, connect]);
     
       const onChangeWallet = (data) => {
         if (data === 'metamask') {
@@ -54,7 +54,7 @@ const SignIn = props => {
         else {
             history.push('/')
         }
-      }, [account]);
+      }, [account, history]);
     
       
 
