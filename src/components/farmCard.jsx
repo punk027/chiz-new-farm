@@ -100,7 +100,7 @@ const CoinCard = (props) => {
     const [staked, setStaked] = useState(0);
     const [totalLpValue, setTotalLpValue] = useState(0);
     const [earned, setEarned] = useState(0);
-    const [loader, setLoader] = useState(false);
+   
     const { pid } = props.pool;
     const { account } = useWallet();
     const payr = usePayr();
@@ -129,7 +129,7 @@ const CoinCard = (props) => {
             );
             console.log("earned = ", bnToDec(new BigNumber(earned)).toFixed(4));
             const decimals = await props.pool.tokenContract.methods.decimals().call();
-           
+          
             setEarned(bnToDec(new BigNumber(earned), decimals).toFixed(4));
          //  const poolWeight = await getPoolWeight(
          //       farmContract,
@@ -154,7 +154,7 @@ const CoinCard = (props) => {
         }
         let refreshInterval = setInterval(fetchEarned, 10000)
         return () => clearInterval(refreshInterval)
-    }, [payr, account, pid]);
+    }, [payr, account, pid, cardData.farmContract, props.pool.tokenContract.methods, props.pool.lpContract.methods]);
 
     useEffect(() => {
         if(allowance.toNumber() && staked >0 )
@@ -316,7 +316,7 @@ const CoinCard = (props) => {
                         ) : (    
                                     <Row className="p-2">
                                         <Col lg={12} style={{ display: "grid" }}>
-                                            <Button className="addMore" disabled={loader} onClick={ handleStake } block>Stake</Button>
+                                            <Button className="addMore" onClick={ handleStake } block>Stake</Button>
                                         </Col>
                                     </Row>           
                             )}       
@@ -380,7 +380,7 @@ const CoinCard = (props) => {
                 </Row>
                 <Row className='p-2'>
                     {!pendingDeposit ?
-                        <Button className="addMore" size="lg" disabled={loader} block onClick={async () => {
+                        <Button className="addMore" size="lg"  block onClick={async () => {
                             setPendingDeposit(true);
                             try {
                                 const txHash = await stake(
@@ -403,7 +403,7 @@ const CoinCard = (props) => {
                             DEPOSIT
                         </Button>
                         :
-                        <Button className="loaderButton" disabled={loader} size="lg" block >
+                        <Button className="loaderButton"  size="lg" block >
                             <Spinner
                                 as="span"
                                 animation="border"
@@ -413,7 +413,7 @@ const CoinCard = (props) => {
                             />{` `}PENDING DEPOSIT...
                         </Button>
                     }
-                    <Button className="withDrawButton" size="lg" block disabled={loader} onClick={()=>{handleCancel("deposit");}}>
+                    <Button className="withDrawButton" size="lg" block  onClick={()=>{handleCancel("deposit");}}>
                         Cancel
                     </Button>
                 </Row>
@@ -460,10 +460,10 @@ const CoinCard = (props) => {
                 </div>
                 <Row className="p-2">
                     <Col lg={6} style={{ display: "grid" }}>
-                        <Button className="withDrawButton" disabled={loader} onClick={() => { handleWithdraw();}}>Withdraw</Button>
+                        <Button className="withDrawButton"  onClick={() => { handleWithdraw();}}>Withdraw</Button>
                     </Col>
                     <Col lg={6} style={{ display: "grid" }}>
-                        <Button className="addMore" disabled={loader} onClick={() => { handleAddMore(); }}>Add More</Button>
+                        <Button className="addMore"  onClick={() => { handleAddMore(); }}>Add More</Button>
                     </Col>
                 </Row>
                 <div className="p-4 stake-info">
@@ -521,7 +521,7 @@ const CoinCard = (props) => {
                 <span className="card_stake_text pt-2">Available: {lPBalance} {cardData.name}</span>
                 <Row className='p-2'>
                     {!pendingDeposit ?
-                        (<Button className="addMore" size="lg" block disabled={loader} onClick={async () => {
+                        (<Button className="addMore" size="lg" block  onClick={async () => {
                             setPendingDeposit(true);
                             try {
                                 const txHash = await stake(
@@ -555,7 +555,7 @@ const CoinCard = (props) => {
                         </Button>
                     }
 
-                    <Button className="withDrawButton" size="lg" block disabled={loader} onClick={() => { handleCancel('add') }}>
+                    <Button className="withDrawButton" size="lg" block  onClick={() => { handleCancel('add') }}>
                         Cancel
                     </Button>
                 </Row>
@@ -588,7 +588,7 @@ const CoinCard = (props) => {
                 </h6>
                 <Row className='p-2'>
                     {!pendingWithdraw ?
-                        <Button className="addMore" size="lg" block disabled={loader}  onClick={async () => {
+                        <Button className="addMore" size="lg" block   onClick={async () => {
                             setPendingWithdraw(true);
                             try {
                                 const txHash = await unstake(
@@ -622,7 +622,7 @@ const CoinCard = (props) => {
                         </Button>
                     }
 
-                    <Button className="withDrawButton" size="lg" block disabled={loader} onClick={() => {handleCancel("withdraw") }}>
+                    <Button className="withDrawButton" size="lg" block  onClick={() => {handleCancel("withdraw") }}>
                         Cancel
                     </Button>
                 </Row>
@@ -658,7 +658,7 @@ const CoinCard = (props) => {
                 </Row>
                 <Row className='p-2'>
                     {!pendingHarvest ?
-                        <Button className="addMore" size="lg" block disabled={loader} onClick={async () => {
+                        <Button className="addMore" size="lg" block  onClick={async () => {
                             setPendingHarvest(true);
                             try {
                                 const txHash = await harvest(
@@ -689,7 +689,7 @@ const CoinCard = (props) => {
                         </Button>
                     }
 
-                    <Button className="withDrawButton" size="lg" block disabled={loader} onClick={() => { handleCancel("harvest") }}>
+                    <Button className="withDrawButton" size="lg" block  onClick={() => { handleCancel("harvest") }}>
                         Cancel
                     </Button>
                 </Row>

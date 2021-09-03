@@ -56,7 +56,7 @@ const DashBoard = () => {
             history.push('/');
         }
         console.log("111=",chainId)
-      }, [account]);
+      }, [account, chainId, history]);
 
     const onFormSubmit = () => {
         setShow(false);
@@ -107,7 +107,7 @@ const DashBoard = () => {
                                                 borderRadius: '8px', border: '1px Solid #E5E5E5', padding: '4px 0'
                                             }}>
                                                 <NavDropdown.Item href="#" style={{fontSize:'14px', color:'#82172D', marginBottom:0, paddingBottom:0, paddingLeft:'12px'}}>{account?formatAddress(account):""}<img src={roundBallIcon} alt="" style={{marginLeft:'8px'}} /></NavDropdown.Item>
-                                                <small ><NavDropdown.Item href={"https://"+(chainId==4?"rinkeby":"mainnet")+".etherscan.io/address/" + account} target="_blank" style={{ color: '#109BDE', fontSize: '12px', paddingTop:0, paddingLeft:'12px' }}>VIEW IN EXPLORER <img src={openIcon} style={{ marginBottom: 4, marginLeft: 4 }} alt=""/></NavDropdown.Item></small>
+                                                <small ><NavDropdown.Item href={"https://"+(chainId===4?"rinkeby":"mainnet")+".etherscan.io/address/" + account} target="_blank" style={{ color: '#109BDE', fontSize: '12px', paddingTop:0, paddingLeft:'12px' }}>VIEW IN EXPLORER <img src={openIcon} style={{ marginBottom: 4, marginLeft: 4 }} alt=""/></NavDropdown.Item></small>
                                             </div>
                                         </div>
                                         <div style={{ margin: 8 }}>
