@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Button,  Form, Card, Image, Badge, InputGroup, Spinner } from 'react-bootstrap';
 import BigNumber from 'bignumber.js'
 
@@ -6,10 +6,7 @@ import useFarms from '../hooks/useFarms';
 import useAllStakedValue from '../hooks/useAllStakedValue';
 import usePayr from '../hooks/usePayr';
 
-import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
-import AccordionContext from "react-bootstrap/AccordionContext";
-import UpArrow from "../assets/up-arrow.svg";
-import DownArrow from "../assets/down-arrow.svg";
+
 import ConectWallet from "../components/conectWallet";
 
 import { BASIC_TOKEN } from '../constants/config';
@@ -98,10 +95,8 @@ const FarmCard = (props) => {
 
 const CoinCard = (props) => {
     const cardData = props?.pool;
-    const [headerMessage, setheaderMessage] = useState();
+   
     const [showBox, setShowBox] = useState("approve");
-    const [prevType, setprevType] = useState("approveContract");
-    const [poolWeight, setPoolWeight] = useState(0);
     const [staked, setStaked] = useState(0);
     const [totalLpValue, setTotalLpValue] = useState(0);
     const [earned, setEarned] = useState(0);
@@ -111,7 +106,6 @@ const CoinCard = (props) => {
     const payr = usePayr();
     const allowance = useAllowance(cardData.lpContract, cardData.farmContract);
     const { onApprove } = useApprove(cardData.lpContract, cardData.farmContract);
-    const [isContractApproved, setIsContractApproved] = useState(false);
     const [requestedApproval, setRequestedApproval] = useState(false);
 
     const [depositAmount, setDepositAmount] = useState(0);
@@ -161,6 +155,7 @@ const CoinCard = (props) => {
         let refreshInterval = setInterval(fetchEarned, 10000)
         return () => clearInterval(refreshInterval)
     }, [payr, account, pid]);
+
     useEffect(() => {
         if(allowance.toNumber() && staked >0 )
         {
@@ -168,7 +163,7 @@ const CoinCard = (props) => {
             setShowBox("withdrawaddmore");
         }
     
-    }, [staked, earned]);
+    }, [staked, earned, allowance, showBox]);
     const handleApprove = useCallback(async () => {
         try {
             setRequestedApproval(true);
@@ -192,24 +187,6 @@ const CoinCard = (props) => {
     };
 
 
-    const handleClickButton = (value, cancel = true) => {
-        if (prevType === 'approveCOntract' && value === "noContract") {
-            setIsContractApproved(true);
-        }
-        setheaderMessage();
-        setLoader(true);
-        if (prevType === value) {
-            setLoader(false);
-        }
-        if (!cancel) {
-            setLoader(true);
-        }
-        setTimeout(() => {
-            setLoader(false);
-        }, 1000);
-        console.log("prev:", showBox);
-
-    }
     const handleCancel = (from) => {
         if(from === "deposit")
             setShowBox("approve");
@@ -251,7 +228,7 @@ const CoinCard = (props) => {
 
     return (
     <Card style={{ width: '22rem' }} className="stake_card p-0 m-0 mr-2 mt-2">
-            {headerMessage && <Card.Header style={{ height: '24px', padding: 0, margin: 0, textAlign: "center" }}><small style={{ marginInline: 'auto', color: "#136F1C" }}>{headerMessage}</small></Card.Header>}
+            
             <Card.Header style={{  borderTopRightRadius: '25px', borderTopLeftRadius: '25px' }}>
                 <div className="d-flex justify-content-start p-3">
                     <div><Image src={cardData.icon} roundedCircle style={{ maxWidth: '50px', maxHeight: '50px' }} /></div>
@@ -412,6 +389,7 @@ const CoinCard = (props) => {
                                     depositAmount,
                                     account,
                                 );
+                                console.log(txHash);
                                 setPendingDeposit(false);
                                 setShowBox("withdrawaddmore");
                 
@@ -552,6 +530,7 @@ const CoinCard = (props) => {
                                     depositAmount,
                                     account,
                                 );
+                                console.log(txHash);
                                 setPendingDeposit(false);
                                 setShowBox("withdrawaddmore");
                 
@@ -618,6 +597,7 @@ const CoinCard = (props) => {
                                     withdrawAmount,
                                     account,
                                 );
+                                console.log(txHash);
                                 setPendingWithdraw(false);
                                 setShowBox("withdrawaddmore");
                                 
@@ -686,6 +666,7 @@ const CoinCard = (props) => {
                                     cardData.pid,
                                     account,
                                 );
+                                console.log(txHash);
                                 setPendingHarvest(false);
                                 setShowBox("withdrawaddmore");
                             } catch (e) {

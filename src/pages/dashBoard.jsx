@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Container, Row, Col, Button, Badge, Card, Image, Form, Modal, Nav, Navbar, NavDropdown, InputGroup, OverlayTrigger, Popover } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Button,  Form, Modal, Nav, Navbar, NavDropdown, InputGroup, OverlayTrigger, Popover } from "react-bootstrap";
 import { useHistory } from 'react-router';
 import { useWallet } from 'use-wallet';
 import { bnToDec } from '../utils';
@@ -18,21 +18,19 @@ import FarmCard from "../components/farmCard";
 
 import BigNumber from 'bignumber.js'
 const DashBoard = () => {
-    const { account, connect, reset, status, balance, connector, ethereum, chainId } = useWallet();
+    const { account, connect, reset, balance, chainId } = useWallet();
    
     const history = useHistory();
-    const [showBox, setshowBox] = useState("none");
+ 
 
     const [show, setShow] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
 
     const handleSuccessClose = () => { setShowSuccess(false) };
-    const handleSuccessShow = () => setShowSuccess(true);
+   
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const handleClickButton = (value) => {
-        setshowBox(value);
-    }
+   
+   
     const onDisconnectWallet = () => {
         reset();
       //  setUserAccount(null);
@@ -231,7 +229,7 @@ const DashBoard = () => {
 
                 </Modal>
                 <Modal show={showSuccess} onHide={handleSuccessClose} animation={false} style={{ borderRadius: '24px' }}>
-                    <Modal.Body className="p-4 modalSucces" className="successModal">
+                    <Modal.Body className="p-4 modalSucces successModal">
                         <div>
                             <div className="mx-auto p-4" style={{ textAlign: "center" }}>
                                 <Row><Col><img src={tickmarkIcon} alt="" /></Col></Row>

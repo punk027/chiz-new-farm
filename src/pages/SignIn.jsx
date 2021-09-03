@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Button, Container, Row, Col, Image } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Button, Container, Row, Col } from "react-bootstrap";
 import { useHistory } from 'react-router-dom'
 
 
@@ -15,14 +15,13 @@ import { useWallet } from 'use-wallet';
 const SignIn = props => {
 
     const history=useHistory();
-    const { account, connect, reset, status } = useWallet();
-    const [modalShow, setModalShow] = useState(false);
-    const [userAccount, setUserAccount] = useState(null);
+    const { account, connect } = useWallet();
+   
     useEffect(() => {
         const localAccount = localStorage.getItem("account");
         const walletProvider = localStorage.getItem("walletProvider");
         if (!account && localAccount) {
-          setUserAccount(localAccount);
+        
           if (localAccount && (walletProvider === "metamask" || walletProvider === "injected")) {
             connect("injected");
             localStorage.setItem("walletProvider", "metamask");
@@ -38,17 +37,17 @@ const SignIn = props => {
         if (data === 'metamask') {
           connect("injected");
           localStorage.setItem("walletProvider", "metamask");
-          setModalShow(false);
+        
         } else if (data === 'walletconnect') {
           connect("walletconnect");
           localStorage.setItem("walletProvider", "walletconnect");
-          setModalShow(false);
+        
         }
       }
     
       useEffect(() => {
         if (account) {
-          setUserAccount(account);
+        
           localStorage.setItem("account", account);
           history.push('/dashboard')
         }
@@ -92,7 +91,7 @@ const SignIn = props => {
                                     //onClick={()=>history.push('/dashboard')}
                                      onClick={() => {
                                         onChangeWallet('metamask');
-                                        setModalShow(false);
+                                       
                                      }}
                                 >
                                     <span className="text_app mb-0 text-left w-fill-available">Connect to Metamask</span>
