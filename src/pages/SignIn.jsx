@@ -101,7 +101,7 @@ const SignIn = props => {
                                 <Button
                                     variant="light"
                                     className="mx-3 mb-3 wallet-connect-button d-flex align-items-center w-fill-available  bg_harvest"
-                                    onClick={()=>history.push('/dashboard')}
+                                    //onClick={()=>history.push('/dashboard')}
                                      onClick={() => {
                                          onChangeWallet('walletconnect');
                                      }}

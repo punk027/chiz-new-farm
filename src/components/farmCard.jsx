@@ -24,7 +24,7 @@ const FarmCard = (props) => {
 	const stakedValue = useAllStakedValue();
 
 
-    const [modalShow, setModalShow] = useState(false);
+    
 
 
 	const farmIndex = farms.findIndex(
