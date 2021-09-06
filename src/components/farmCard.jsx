@@ -7,7 +7,6 @@ import useAllStakedValue from '../hooks/useAllStakedValue';
 import usePayr from '../hooks/usePayr';
 
 
-import ConectWallet from "../components/conectWallet";
 
 import { BASIC_TOKEN } from '../constants/config';
 import { useWallet } from 'use-wallet';
@@ -80,14 +79,6 @@ const FarmCard = (props) => {
             ) : (
                 <div></div>
             )}
-
-            <ConectWallet 
-				show={modalShow} 
-				onHide={() => setModalShow(false)} 
-				onChangeWallet={props.onChangeWallet} 
-				themeClass={props.themeClass} 
-			/>
-            
         </>
     );
 }
@@ -238,10 +229,7 @@ const CoinCard = (props) => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-between p-3 token-info">
-                    <div>
-                        <h6 className='mb-0' style={{ color: '#977D83' }}>Weight</h6>
-                        <strong>{cardData.pool}</strong>
-                    </div>
+                   
                     <div>
                         <h6 className='mb-0' style={{ color: '#977D83' }}>Stake</h6>
                         <strong>{cardData.lpToken}</strong>
@@ -250,6 +238,10 @@ const CoinCard = (props) => {
                         <h6 className='mb-0' style={{ color: '#977D83' }}>Earn</h6>
                         <strong><Badge pill variant="light" className="tagKawa">CHIZ</Badge></strong>
                     </div>
+
+                </div>
+                <div className="pool-description">
+                    <h6>{cardData.pool}</h6>
                 </div>
 
             </Card.Header>
@@ -521,7 +513,7 @@ const CoinCard = (props) => {
                 <span className="card_stake_text pt-2">Available: {lPBalance} {cardData.name}</span>
                 <Row className='p-2'>
                     {!pendingDeposit ?
-                        (<Button className="addMore" size="lg" block  onClick={async () => {
+                        (<Button className="addMore mb-2" size="lg" block  onClick={async () => {
                             setPendingDeposit(true);
                             try {
                                 const txHash = await stake(
@@ -640,6 +632,7 @@ const CoinCard = (props) => {
                                         <div>
                                             <Form.Control size="lg" style={{ border: "none" }} type="text" value={earnedBalance} disabled/>
                                         </div>
+
                                         <div className="py-2">
                                             <InputGroup.Prepend >
                                                 <InputGroup.Text style={{ background: "#fff", border: 'none' }}>
@@ -658,7 +651,7 @@ const CoinCard = (props) => {
                 </Row>
                 <Row className='p-2'>
                     {!pendingHarvest ?
-                        <Button className="addMore" size="lg" block  onClick={async () => {
+                        <Button className="addMore mb-2" size="lg" block  onClick={async () => {
                             setPendingHarvest(true);
                             try {
                                 const txHash = await harvest(

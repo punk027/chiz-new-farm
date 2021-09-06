@@ -83,7 +83,7 @@ const SignIn = props => {
                             <div className="p-4 m-4 loginBox" style={{ background: 'white', borderRadius: '12px' }}>
                                 <Row className="p-4 text-center">
                                     <Col lg={12}><h3 style={{letterSpacing:'-0.04em'}}>Connect your wallet to start farming</h3></Col>
-                                    <Col lg={12} className="pt-4"><p style={{ color: "#DE4949", fontSize:'14px', lineHeight:'21px' }}>You are about to input highly sensitive information, please DO NOT expose to strangers.</p></Col>
+                                    
                                 </Row>
                                 <Button
                                     variant="light"
@@ -102,10 +102,9 @@ const SignIn = props => {
                                     variant="light"
                                     className="mx-3 mb-3 wallet-connect-button d-flex align-items-center w-fill-available  bg_harvest"
                                     onClick={()=>history.push('/dashboard')}
-                                    // onClick={() => {
-                                    //     props.onChangeWallet('walletconnect');
-                                    //     props.onHide();
-                                    // }}
+                                     onClick={() => {
+                                         onChangeWallet('walletconnect');
+                                     }}
                                 >
                                     <span className="text_app mb-0 text-left w-fill-available">Use Wallet Connect</span>
                                     <img src={ WConnect } alt=""/>

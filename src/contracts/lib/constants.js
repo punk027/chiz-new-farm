@@ -8,7 +8,7 @@ export const contractAddresses = {
   farm: {
     42: "0x91B35B2f90f283A093e14B2d8578Afcd67C18876",
     1: "0x0",
-    4: "0xe3C0be266d46ffEF2D3F98DBFfD6A0771cC4E20C",
+    4: "0x439607d5506E009b98fC9E37dD29E17b096c472f",
   },
   weth: {
     42: "0xa050886815cfc52a24b9c4ad044ca199990b6690",
@@ -27,7 +27,7 @@ export const supportedPools = [
       4: "0x2fb106f9751d643452f4c8a657ad408341824108",
     },
     farmAddresses: {
-      4: "0xe3C0be266d46ffEF2D3F98DBFfD6A0771cC4E20C",
+      4: "0x439607d5506E009b98fC9E37dD29E17b096c472f",
     },
     tokenAddresses: {
       42: "0xded7ceb95a1f3c20f07545dc50a8d2c093bbdf22",
@@ -40,6 +40,28 @@ export const supportedPools = [
   
     poolTitle: "CHIZ/ETH Pool",
    // pool: "50%",
+  },
+  {
+    pid: 1,
+    lpAddresses: {
+      42: "0xf9f89F9dF418664cFAF5f8669d846269e49Ca6f1",
+      1: "0x0",
+      4: "0x2fb106f9751d643452f4c8a657ad408341824108",
+    },
+    farmAddresses: {
+      4: "0x439607d5506E009b98fC9E37dD29E17b096c472f",
+    },
+    tokenAddresses: {
+      42: "0xded7ceb95a1f3c20f07545dc50a8d2c093bbdf22",
+      1: "0x0",
+      4: "0xded7ceb95a1f3c20f07545dc50a8d2c093bbdf22",
+    },
+    name: "CHIZ/ETH",
+    symbol: "CHIZ/ETH",
+    tokenSymbol: "CHIZ",
+  
+    poolTitle: "EXTRA CHIZ/ETH Pool",
+    pool: "Must have at least one Rat and one Cheddaz companion in your wallet.",
   },
   
 ];
