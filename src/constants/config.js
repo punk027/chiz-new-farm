@@ -1,2 +1,2 @@
-export const BASIC_TOKEN = 'PAYR';
-export const GITHUB = 'github.com/payrlink/payrlink-farm';
+export const BASIC_TOKEN = 'CHIZ';
+export const GITHUB = 'https://github.com/JasonGhostDev/chiz-new-farm';

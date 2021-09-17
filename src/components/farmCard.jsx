@@ -37,7 +37,7 @@ const FarmCard = (props) => {
 	const BLOCKS_PER_YEAR = new BigNumber(2336000);
 	// TODO: After block height xxxx, FARM_PER_BLOCK = 100;
 	const FARM_PER_BLOCK = new BigNumber(1000);
-
+        console.log("asdfasdfsdaf = ",farmPrice.toString() )
 	const rows = farms.reduce(
 		(farmRows, farm, i) => {
             const farmWithStakedValue = {
@@ -71,7 +71,7 @@ const FarmCard = (props) => {
                     <div key={i} md="10" lg="6" xl="4" className="stake-card-container">
                         {poolRow.map((pool, j) => (
                            
-                            
+                           
                             <CoinCard pool={pool}/>
                         ))}
                     </div>
@@ -216,7 +216,20 @@ const CoinCard = (props) => {
         );
         setEarnedBalance(bnToDec(new BigNumber(balance)));
     }
-
+    let poolApy;
+    console.log("apy = ", cardData.apy?.toString());
+    if (cardData.apy && cardData.apy.isNaN()) {
+        poolApy = '- %';
+    } else {
+        poolApy = cardData.apy
+            ? `${cardData.apy
+                .times(new BigNumber(100))
+                .toNumber()
+                .toLocaleString('en-US')
+                .slice(0, -1) || '-' }%`
+            : 'Loading ...';
+    }
+    
     return (
     <Card style={{ width: '22rem' }} className="stake_card p-0 m-0 mr-2 mt-2">
             
@@ -233,6 +246,10 @@ const CoinCard = (props) => {
                     <div>
                         <h6 className='mb-0' style={{ color: '#977D83' }}>Stake</h6>
                         <strong>{cardData.lpToken}</strong>
+                    </div>
+                    <div>
+                        <h6 className='mb-0' style={{ color: '#977D83' }}>APY</h6>
+                        <strong>{poolApy}</strong>
                     </div>
                     <div>
                         <h6 className='mb-0' style={{ color: '#977D83' }}>Earn</h6>

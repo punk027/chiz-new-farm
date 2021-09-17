@@ -89,13 +89,16 @@ export const getTotalLPWethValue = async (
   const tokenAmountWholeLP = await tokenContract.methods
     .balanceOf(lpContract.options.address)
     .call();
+
+    //console.log("tokenAmountWholeLP = ", tokenAmountWholeLP.toString())
    
   const tokenDecimals = await tokenContract.methods.decimals().call();
-  console.log("tokenDecimals", tokenDecimals);
+//  console.log("tokenDecimals", tokenDecimals);
     // Get the share of lpContract that farmContract owns
   const balance = await lpContract.methods
     .balanceOf(farmContract.options.address)
     .call();
+    console.log("balancesss = ", balance.toString());
   // Convert that into the portion of total lpContract = p1
   const totalSupply = await lpContract.methods.totalSupply().call();
   // Get total weth value for the lpContract = w1
@@ -115,13 +118,18 @@ export const getTotalLPWethValue = async (
   const wethAmount = new BigNumber(lpContractWeth)
     .times(portionLp)
     .div(new BigNumber(10).pow(18));
+    console.log("tokenAmount = ", tokenAmount.toString())
+    console.log("wethAmount = ", wethAmount.toString())
+    console.log("totalWethValue = ", totalLpWethValue.div(new BigNumber(10).pow(18)))
+    console.log("tokenPriceInWeth = ", wethAmount.div(tokenAmount))
+    console.log("poolWeight=", await getPoolWeight(farmContract, pid));
   return {
     tokenAmount,
     wethAmount,
     totalWethValue: totalLpWethValue.div(new BigNumber(10).pow(18)),
     tokenPriceInWeth: wethAmount.div(tokenAmount),
-   // poolWeight: await getPoolWeight(farmContract, pid)
-   poolWeight: 100
+    poolWeight: await getPoolWeight(farmContract, pid)
+   //poolWeight: 100
   }
 }
 
