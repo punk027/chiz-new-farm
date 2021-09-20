@@ -49,6 +49,7 @@ const FarmCard = (props) => {
                     .times(BLOCKS_PER_YEAR)
                     .times(stakedValue[i].poolWeight)
                     .div(stakedValue[i].totalWethValue)
+                    .div(1000)
                 : null,
             };
             const newFarmRows = [...farmRows];
