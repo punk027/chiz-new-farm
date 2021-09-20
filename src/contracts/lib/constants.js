@@ -40,11 +40,11 @@ export const supportedPools = [
     tokenSymbol: "CHIZ",
   
     poolTitle: "EXTRA CHIZ/ETH Pool",
-    pool: "Must have at least one Rat and one Cheddaz companion in your wallet.",
+   // pool: "Must have at least one Rat and one Cheddaz companion in your wallet.",
    
    // pool: "50%",
   },
-  {
+/*  {
     pid: 1,
     lpAddresses: {
       42: "0xf9f89F9dF418664cFAF5f8669d846269e49Ca6f1",
@@ -65,7 +65,7 @@ export const supportedPools = [
     tokenSymbol: "CHIZ",
   
     poolTitle: "CHIZ/ETH Pool",
-  },
+  },*/
   {
     pid: 2,
     lpAddresses: {
@@ -87,6 +87,7 @@ export const supportedPools = [
     tokenSymbol: "CHIZ",
   
     poolTitle: "SRSC20/ETH Pool",
+    pool: "Must have at least one Rat and one Cheddaz companion in your wallet."
    
   },
   
