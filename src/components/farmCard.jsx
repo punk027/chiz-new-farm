@@ -233,7 +233,7 @@ const CoinCard = (props) => {
     return (
     <Card style={{ width: '22rem' }} className="stake_card p-0 m-0 mr-2 mt-2">
             
-            <Card.Header style={{  borderTopRightRadius: '25px', borderTopLeftRadius: '25px' }}>
+            <Card.Header>
                 <div className="d-flex justify-content-start p-3">
                     <div><Image src={cardData.icon} roundedCircle style={{ maxWidth: '50px', maxHeight: '50px' }} /></div>
                     <div style={{marginLeft:'12px'}}>
@@ -245,15 +245,15 @@ const CoinCard = (props) => {
                    
                     <div>
                         <h6 className='mb-0' style={{ color: '#977D83' }}>Stake</h6>
-                        <strong>{cardData.lpToken}</strong>
+                        <strong className="text-white value-text">{cardData.lpToken}</strong>
                     </div>
                     <div>
                         <h6 className='mb-0' style={{ color: '#977D83' }}>APY</h6>
-                        <strong>{poolApy}</strong>
+                        <strong className="text-white value-text">{poolApy}</strong>
                     </div>
                     <div>
                         <h6 className='mb-0' style={{ color: '#977D83' }}>Earn</h6>
-                        <strong><Badge pill variant="light" className="tagKawa">CHIZ</Badge></strong>
+                        <strong ><Badge pill variant="light" className="tagKawa">CHIZ</Badge></strong>
                     </div>
 
                 </div>
@@ -319,7 +319,7 @@ const CoinCard = (props) => {
                                     Approving...</strong>
                                 </Button>
                             ): (
-                                <Button variant="light" style={{ border: '1px solid #E6E5E5', fontSize:'13px', color:'#fff', textTransform:'uppercase', backgroundColor:'transparent' }} onClick={handleApprove} block><strong>Approve Contract</strong></Button>
+                                <Button variant="light" style={{ border: '1px solid #E6E5E5', borderRadius: '0', fontSize:'13px', color:'#fff', textTransform:'uppercase', backgroundColor:'transparent' }} onClick={handleApprove} block><strong>Approve Contract</strong></Button>
                             )}
                             </>
                         ) : (    

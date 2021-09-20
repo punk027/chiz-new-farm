@@ -155,7 +155,7 @@ const DashBoard = () => {
             <Container className="main-dash-container" style={{maxWidth:'1140px' }}>
                 <Row>
                     <Col xl="12" className="p-2" style={{paddingTop: 0}}>
-                        <div className="font-weight-bold farm-top-title" style={{ fontFamily: 'Visby', color:'#fff' }}>Stake one or more lp tokens to earn CHIZ</div>
+                        <div className="font-weight-bold farm-top-title text-white">Stake one or more lp tokens to earn CHIZ</div>
                         <hr />
                     </Col>
                 </Row>

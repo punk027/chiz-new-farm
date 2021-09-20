@@ -8,12 +8,8 @@ h1 {
   }
 }
 
-.body {
-  font-family: Visby;
-}
-
 .main_layout {
-  background-color: #141132;
+  background-color: black;
   min-height: 100vh;
 }
 
@@ -590,7 +586,6 @@ h1 {
 
 .stake_card {
   background-color: #000;
-  border-radius: 25px;
   height: auto;
 }
 
@@ -619,8 +614,11 @@ h1 {
 
 .cardBox {
   background: #fff;
-  border: 1px solid #f9e0db;
-  border-radius: 8px;
+  /* border: 1px solid #f9e0db; */
+  border-top: 2px solid white !important;
+  border-left: 2px solid white !important;
+  border-right: 2px solid #bdd100 !important;
+  border-bottom: 2px solid #bdd100 !important;
 }
 
 .cardBox .lightcard {
@@ -738,11 +736,11 @@ h1 {
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-shadow: 0px 0px 88px rgba(138, 57, 69, 0.1);
   box-shadow: 0px 0px 88px rgba(138, 57, 69, 0.1);
-  border-radius: 16px;
+  border-radius: 0;
 }
 
 .walletsetup {
-  font-family: Visby Round CF;
+  font-family: 'Eurostile Extended', sans-serif !important;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -833,20 +831,6 @@ h1 {
   }
 }
 
-body,
-html,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Visby", sans-serif;
-}
-
-:root {
-  font-family: "Visby", sans-serif;
-}
 
 .popoverClass {
   display: -webkit-box;

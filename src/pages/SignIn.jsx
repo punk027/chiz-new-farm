@@ -59,7 +59,7 @@ const SignIn = props => {
       
 
     return (
-        <Container fluid className="main_layout loginGradiant" style={{width:'100%', overflowX:'hidden', backgroundSize: 'cover', backgroundImage: "url(" + HomepageBG + ")"}}>
+        <Container fluid className="main_layout ">
             <Row style={{ zIndex: '10000', opacity:1 }} >
                 <Col lg={{ span: 4, offset: 4 }}  className="d-flex flex-column justify-content-center" style={{maxWidth:'480px', marginLeft: 'auto', marginRight:'auto', width:'100%', padding:'60px 0' }}>
                     <Row>
@@ -80,7 +80,7 @@ const SignIn = props => {
                     <Row>
                         <Col lg={{ span: 12 }} style={{ padding: 4 }}>
 
-                            <div className="p-4 m-4 loginBox" style={{ background: 'white', borderRadius: '12px' }}>
+                            <div className="p-4 m-4 loginBox" style={{ background: 'white' }}>
                                 <Row className="p-4 text-center">
                                     <Col lg={12}><h3 style={{letterSpacing:'-0.04em'}}>Connect your wallet to start farming</h3></Col>
                                     

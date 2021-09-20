@@ -2,9 +2,6 @@
 
 @import "./style.scss";
 
-:root {
-  font-family: "Visby" !important;
-}
 .farm-title {
   font-style: normal;
   font-weight: normal;
@@ -17,11 +14,9 @@
   span {
     font-size: 16px;
     line-height: 24px;
-    font-family: "Visby 400";
-    color: #4e2b33;
+    color: white;
     font-weight: 400;
     strong {
-      font-family: "Visby 800";
       font-weight: 400;
     }
   }
@@ -29,9 +24,12 @@
 
 .wallet-connect-button {
   background: #fef9fa;
-  border: 1px solid #d5d5d5;
+  border-top: 2px solid black !important;
+  border-left: 2px solid black !important;
+  border-right: 2px solid #bdd100 !important;
+  border-bottom: 2px solid #bdd100 !important;
   box-sizing: border-box;
-  border-radius: 12px;
+  border-radius: 0 !important;
   height: 64px !important;
   line-height: 64px !important;
   padding: 0 24px;
@@ -51,8 +49,7 @@
   padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-radius: 0;
   margin-top: 0px !important;
 
   a,
@@ -63,7 +60,7 @@
   }
 }
 .farm-top-title {
-  font-family: "Visby 800" !important;
+  
   font-weight: 400 !important;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -92,7 +89,7 @@
   margin-bottom: 24px !important;
  
   h5 {
-    font-family: "Visby 800" !important;
+    
     font-weight: 400 !important;
     color: #000;
     font-size: 24px;
@@ -113,19 +110,21 @@
   .token-info {
     padding-top: 12px !important;
     h6 {
-      font-family: "Visby 600" !important;
       font-weight: 400 !important;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       strong {
-        font-family: "Visby 800" !important;
+        
         font-weight: 400 !important;
-        font-size: 16px;
+        font-size: 1px;
         line-height: 25px;
         color: #000;
         letter-spacing: -0.02em;
       }
+    }
+    .value-text {
+      font-size:10px;
     }
   }
   @media screen and (max-width: 992px) {
@@ -158,7 +157,6 @@
   }
   a span {
     letter-spacing: 0;
-    font-family: "Visby 600" !important;
     font-weight: 400 !important;
     line-height: 1;
   }
@@ -178,7 +176,6 @@
   h2 {
     font-size: 28px;
     line-height: 35px;
-    font-family: "Visby 800" !important;
     font-weight: 400 !important;
     color: rgba(105, 38, 38, 1);
     letter-spacing: -0.03em;
@@ -192,7 +189,6 @@
     font-size: 28px;
     line-height: 36px;
     letter-spacing: -0.03em;
-    font-family: "Visby 800" !important;
     font-weight: 400 !important;
     @media screen and (min-width: 992px) {
       font-size: 40px;
@@ -200,19 +196,14 @@
     }
   }
   p {
-    font-family: "Visby 600" !important;
     font-weight: 400 !important;
     font-size: 16px;
     line-height: 24px;
-    strong {
-      font-family: "Visby 800" !important;
-    }
   }
   .form-group {
     .form-control {
       color: #000;
       font-size: 16px;
-      font-family: "Visby 600" !important;
       font-weight: 400 !important;
       outline: none;
       box-shadow: none;
@@ -240,7 +231,6 @@
     font-size: 16px;
     line-height: 24px;
     color: #543939;
-    font-family: "Visby 600" !important;
     font-weight: 400 !important;
   }
   h2 {
@@ -248,7 +238,6 @@
     font-size: 28px;
     line-height: 36px;
     letter-spacing: -0.03em;
-    font-family: "Visby 800" !important;
     font-weight: 400 !important;
     margin: 12px 0;
   }

@@ -1,10 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+
+@font-face {
+  font-family: 'Eurostile Extended';
+  src: url('../fonts/eurostile_extended_black.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-extended {
+  font-family: 'Eurostile Extended', sans-serif;
+}
+
 body {
   overflow-x: hidden;
   width: 100%;
+  font-family: 'Eurostile Extended', sans-serif !important;
 }
 .ibm-plex {
-  font-family: "IBM Plex Mono", monospace !important;
+  font-family: 'Eurostile Extended', sans-serif !important;
   letter-spacing: 0 !important;
 }
 
@@ -43,12 +57,9 @@ h1 {
     font-size: 1.8rem;
   }
 }
-.body {
-  font-family: Visby;
-}
 
 .main_layout {
-  background-color: #141132;
+  background-color: black !important;
   min-height: 100vh;
 }
 
@@ -81,7 +92,6 @@ hr {
     height: 40px;
     line-height: 40px;
     padding: 0 24px;
-    font-family: "Visby 800" !important;
     letter-spacing: 0.05em;
   }
   &.loaderButton {
@@ -584,13 +594,14 @@ hr {
  
   min-width: 18rem;
   width: 22rem !important;
-  max-width: 22rem !important;
-  border-radius: 25px;
-  // height: 600px;
+  max-width: 32rem !important;
+  border-top: 2px solid white !important;
+  border-left: 2px solid white !important;
+  border-right: 2px solid #bdd100 !important;
+  border-bottom: 2px solid #bdd100 !important;
   height: auto;
   min-height: 550px !important;
   @media only screen and (max-width: 992px) {
-    // height: 550px;
     width: 100%;
   }
 }
@@ -614,7 +625,7 @@ hr {
   // height:120px;
   background: #000;
   border: 1px solid #f9e0db;
-  border-radius: 8px;
+  // border-radius: 8px;
   .lightcard {
     background-color: #fffaf9 !important;
   }
@@ -638,6 +649,7 @@ hr {
   background: #fef1f4;
   border: 1px solid #ffa8ba;
   box-sizing: border-box;
+  border-radius: 0;
   color: #ff2e59;
 }
 .cardBodyColor {
@@ -703,7 +715,6 @@ hr {
 }
 
 .formlabel {
-  font-family: "Visby 700";
   letter-spacing: 0.05em;
   color: #642828;
   font-size: 14px;
@@ -715,13 +726,7 @@ hr {
     text-align: center;
   }
 }
-.gradient {
-  background: linear-gradient(
-    180deg,
-    #ff7bca 0%,
-    rgba(255, 197, 111, 0.46) 100%
-  );
-}
+
 .loginGradiant {
   @media screen and (max-width: 992px) {
     .col-lg-12 {
@@ -733,9 +738,7 @@ hr {
 .loginBox {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 88px rgba(138, 57, 69, 0.1);
-  border-radius: 16px;
-  border-bottom-left-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
+  border-radius: 0;
   margin-bottom: 0px !important;
   .p-4.text-center.row {
     padding-bottom: 0 !important;
@@ -776,8 +779,8 @@ hr {
   }
 }
 
-.walletsetup {
-  font-family: "Visby", sans-serif;
+.walletsetup { 
+  font-family: 'Eurostile Extended', sans-serif !important;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -792,7 +795,6 @@ hr {
 }
 
 p.walletsetup {
-  font-family: "Visby", sans-serif;
   font-weight: 400;
 }
 
@@ -857,19 +859,7 @@ p.walletsetup {
     width: 400px !important;
   }
 }
-body,
-html,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Visby", sans-serif;
-}
-:root {
-  font-family: "Visby", sans-serif;
-}
+
 .popoverClass {
   display: flex;
   justify-content: center;
@@ -905,4 +895,19 @@ h6 {
     max-width: 390px;
     margin: 30px auto;
   }
+}
+
+
+.border-emboss {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.border-deboss {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
 }
