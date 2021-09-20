@@ -40,7 +40,7 @@ export const supportedPools = [
     tokenSymbol: "CHIZ",
   
     poolTitle: "EXTRA CHIZ/ETH Pool",
-   // pool: "Must have at least one Rat and one Cheddaz companion in your wallet.",
+    pool: "Must have at least one Rat and one Cheddaz companion in your wallet.",
    
    // pool: "50%",
   },
