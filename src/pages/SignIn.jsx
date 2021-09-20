@@ -3,7 +3,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import { useHistory } from 'react-router-dom'
 
 
-import HomepageBG from "../assets/bg-homepage.jpg";
+
 
 import Metamask from "../assets/metamask.svg";
 

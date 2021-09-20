@@ -269,7 +269,7 @@ const CoinCard = (props) => {
                             <div className="d-flex justify-content-between p-0">
                                 <div>
                                     <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
-                                    <Form.Control size="lg" style={{ border: "none" }} type="text" value={staked} disabled />
+                                    <Form.Control size="sm" style={{ border: "none" }} type="text" value={staked} disabled />
                                 </div>
                                 <div className="py-2">
                                     <InputGroup.Prepend >
@@ -286,7 +286,7 @@ const CoinCard = (props) => {
                             <div className="d-flex justify-content-between p-0 align-items-end">
                                 <div>
                                     <small className="card_stake_text"><strong style={{ paddingLeft: 12 }}>CHIZ EARNED</strong></small>
-                                    <Form.Control size="lg" style={{ border: "none" }} type="text" value={earned} disabled />
+                                    <Form.Control size="sm" style={{ border: "none" }} type="text" value={earned} disabled />
                                 </div>
                                 <div className="pt-2">
                                     <InputGroup.Prepend >
@@ -369,7 +369,7 @@ const CoinCard = (props) => {
                                 <Col lg={12} className="">
                                     <div className="d-flex justify-content-between p-0">
                                         <div className="mr-1">
-                                            <Form.Control size="lg" style={{ border: "none" }} as="input" type="number" value={depositAmount} onChange={(val) => setDepositAmount(val.target.value)} />
+                                            <Form.Control size="sm" style={{ border: "none" }} as="input" type="number" value={depositAmount} onChange={(val) => setDepositAmount(val.target.value)} />
                                         </div>
                                         <div className="py-2">
                                             <InputGroup.Prepend >
@@ -434,7 +434,7 @@ const CoinCard = (props) => {
                             <div className="d-flex justify-content-between p-0">
                                 <div>
                                     <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
-                                    <Form.Control size="lg" style={{ border: "none" }} type="text" value={staked} disabled />
+                                    <Form.Control size="sm" style={{ border: "none" }} type="text" value={staked} disabled />
                                 </div>
                                 <div className="py-2">
                                     <InputGroup.Prepend >
@@ -451,7 +451,7 @@ const CoinCard = (props) => {
                             <div className="d-flex justify-content-between p-0 align-items-end">
                                 <div>
                                     <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>CHIZ EARNED</strong></small>
-                                    <Form.Control size="lg" style={{ border: "none" }} type="text" value={earned} disabled />
+                                    <Form.Control size="sm" style={{ border: "none" }} type="text" value={earned} disabled />
                                 </div>
                                 <div className="pt-2">
                                     <InputGroup.Prepend >
