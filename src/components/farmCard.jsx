@@ -239,7 +239,7 @@ const CoinCard = (props) => {
                     <div><Image src={cardData.icon} roundedCircle style={{ maxWidth: '50px', maxHeight: '50px' }} /></div>
                     <div style={{marginLeft:'12px'}}>
                         <h5 className="m-0 text-light">{cardData.poolTitle}</h5>
-                        <small>{cardData.name}-CHIZ</small>
+                        <small className="pool-info">{cardData.name}-CHIZ</small>
                     </div>
                 </div>
                 <div className="d-flex justify-content-between p-3 token-info">
@@ -332,29 +332,29 @@ const CoinCard = (props) => {
                             )}       
                     </Col>
                 </Row>
-                <div className="px-4 pt-4 stake-info">
+                <div className="px-4 pt-1 stake-info">
                     <Row>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text color-gray">
+                            <span className="card_stake_text">
                                 TOTAL VALUE
-                            </small>
+                            </span>
                         </Col>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text color-gray">
+                            <span className="card_stake_text ">
                                 MY STAKE
-                            </small>
+                            </span>
                         </Col>
                     </Row>
                     <Row>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text  ibm-plex color-gray">
+                            <span className="card_stake_text  ibm-plex ">
                                 {totalLpValue} {cardData.name}
-                            </small>
+                            </span>
                         </Col>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text ibm-plex color-gray">
+                            <span className="card_stake_text ibm-plex ">
                                 {staked} {cardData.name}
-                            </small>
+                            </span>
                         </Col>
                     </Row>
                 </div>

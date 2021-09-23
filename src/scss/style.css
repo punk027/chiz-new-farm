@@ -626,7 +626,9 @@ h1 {
 }
 
 .card_stake_text {
-  color: #977d83;
+  color:  #F5F5F5 !important;
+  font-size: 12px;
+
 }
 
 .cardButton {

@@ -122,31 +122,7 @@ const DashBoard = () => {
                          
                             <Nav.Link className="header-pedding" href="#" style={{marginLeft:'12px'}}>
                                
-                                <OverlayTrigger
-                                    trigger="click"
-                                    key={'left-end'}
-                                    transition={false}
-                                    animation={null}
-                                    placement="bottom-end"
-            
-                                    overlay={
-                                        <Popover id={`popover-positioned-left-start`} style={{
-                                        }} className='popoverClass'>
-                                            
-                                            <Popover.Content>
-                                                <div>
-                                                    <img src={bellIcon} alt="" />
-                                                </div>
-                                                <div>
-                                                    <h3>Notifications</h3>
-                                                    <p>Stay up to date with all the KawaFarm updates here.</p>
-                                                </div>
-                                            </Popover.Content>
-                                        </Popover>
-                                    }
-                                >
-                                    <img src={Bell} alt="" />
-                                </OverlayTrigger>
+                               
                                 </Nav.Link> 
                         </Nav>
                     </Navbar.Collapse> 
