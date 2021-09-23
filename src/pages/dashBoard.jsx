@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button,  Form, Modal, Nav, Navbar, NavDropdown, InputGroup, OverlayTrigger, Popover } from "react-bootstrap";
+import { Container, Row, Col, Button,  Form, Modal, Nav, Navbar, NavDropdown, InputGroup,  } from "react-bootstrap";
 import { useHistory } from 'react-router';
 import { useWallet } from 'use-wallet';
 import { bnToDec } from '../utils';
 
 import ListedFormBG from "../assets/bg-listed.jpg";
 
-import Bell from "../assets/bell.svg";
+
 import tickmarkIcon from "../assets/tickmarkIcon.svg";
 import openIcon from "../assets/openIcon.svg";
 import roundBallIcon from "../assets/roundBallIcon.svg";
-import bellIcon from "../assets/bellIcon.svg";
+
 
 import { formatAddress } from "../utils";
 
