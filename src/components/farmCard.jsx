@@ -269,7 +269,7 @@ const CoinCard = (props) => {
                         <Col lg={12}>
                             <div className="d-flex justify-content-between p-0">
                                 <div>
-                                    <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
+                                    <small className=" "><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
                                     <Form.Control size="sm" style={{ border: "none" }} type="text" value={staked} disabled />
                                 </div>
                                 <div className="py-2">
@@ -286,7 +286,7 @@ const CoinCard = (props) => {
                         <Col lg={12}>
                             <div className="d-flex justify-content-between p-0 align-items-end">
                                 <div>
-                                    <small className="card_stake_text"><strong style={{ paddingLeft: 12 }}>CHIZ EARNED</strong></small>
+                                    <small className=""><strong style={{ paddingLeft: 12 }}>CHIZ EARNED</strong></small>
                                     <Form.Control size="sm" style={{ border: "none" }} type="text" value={earned} disabled />
                                 </div>
                                 <div className="pt-2">
@@ -369,13 +369,13 @@ const CoinCard = (props) => {
                             <Row>
                                 <Col lg={12} className="">
                                     <div className="d-flex justify-content-between p-0">
-                                        <div className="mr-1">
+                                        <div className="mr-1 mt-3">
                                             <Form.Control size="sm" style={{ border: "none" }} as="input" type="number" value={depositAmount} onChange={(val) => setDepositAmount(val.target.value)} />
                                         </div>
                                         <div className="py-2">
                                             <InputGroup.Prepend >
                                                 <InputGroup.Text style={{ background: "#fff", border: 'none' }}>
-                                                    <small><strong className="card_stake_text pt-2">
+                                                    <small><strong className=" pt-2">
                                                     {cardData.name}
                                                     </strong></small>
                                                     <Badge className="mt-1" style={{ background: '#FFFBEC', color: "#D5A600", marginBottom: 4, cursor:'pointer' }} onClick={()=>{setDepositAmount(lPBalance)}}>MAX</Badge>
@@ -423,7 +423,7 @@ const CoinCard = (props) => {
                             />{` `}PENDING DEPOSIT...
                         </Button>
                     }
-                    <Button className="withDrawButton" size="lg" block  onClick={()=>{handleCancel("deposit");}}>
+                    <Button className="withDrawButton mt-2" size="lg" block  onClick={()=>{handleCancel("deposit");}}>
                         Cancel
                     </Button>
                 </Row>
@@ -434,7 +434,7 @@ const CoinCard = (props) => {
                         <Col lg={12}>
                             <div className="d-flex justify-content-between p-0">
                                 <div>
-                                    <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
+                                    <small className=""><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
                                     <Form.Control size="sm" style={{ border: "none" }} type="text" value={staked} disabled />
                                 </div>
                                 <div className="py-2">
@@ -451,7 +451,7 @@ const CoinCard = (props) => {
                         <Col lg={12}>
                             <div className="d-flex justify-content-between p-0 align-items-end">
                                 <div>
-                                    <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>CHIZ EARNED</strong></small>
+                                    <small className=""><strong style={{ paddingLeft: 16 }}>CHIZ EARNED</strong></small>
                                     <Form.Control size="sm" style={{ border: "none" }} type="text" value={earned} disabled />
                                 </div>
                                 <div className="pt-2">
